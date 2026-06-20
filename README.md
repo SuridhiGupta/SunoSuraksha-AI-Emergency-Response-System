@@ -1,220 +1,82 @@
 # 🚨 SunoSuraksha – AI Emergency Response System (Prototype V1)
 
-Most personal safety applications are reactive. They rely on users manually pressing an SOS button, opening an application, or making a phone call during situations where panic, physical restraint, or unconsciousness may make these actions impossible.
+Most safety applications are reactive. They depend on users manually pressing an SOS button or making a phone call during situations where panic, physical restraint, or unconsciousness may make these actions impossible.
 
-This project was built to answer a simple question:
+SunoSuraksha explores a different approach:
 
-> **How can an emergency response system proactively detect distress and trigger assistance without requiring any user interaction?**
+> **Can an AI system detect distress automatically and initiate emergency actions without requiring user interaction?**
 
-The answer is **SunoSuraksha** — an AI-powered ambient distress detection system designed to continuously listen for distress signals and automatically initiate emergency actions.
+The long-term vision is an AI-powered ambient distress detection system that can eventually be integrated into wearable devices such as smart rings, bracelets, or pendants.
 
-The long-term vision is to integrate this technology into wearable devices such as smart rings, bracelets, pendants, or earbuds, enabling completely hands-free personal safety assistance.
+## 📖 The Problem
 
----
+Traditional safety solutions assume users are always capable of interacting with their devices.
 
-# 📖 The Story Behind The Architecture
+Real emergencies often don't provide that opportunity.
 
-## The "Why" (The Problem)
+SunoSuraksha investigates whether distress situations can be recognized passively through environmental audio analysis.
 
-Traditional safety applications suffer from a fundamental limitation.
+## 🧠 Prototype V1
 
-They assume that users remain calm, conscious, physically capable, and have immediate access to their phones during dangerous situations.
+Current prototype capabilities:
 
-However, emergencies rarely provide these ideal conditions.
+* 🎤 Real-time microphone monitoring
+* 🧠 Distress classification using CNN + MFCC
+* 🚨 Alert triggering
+* 🕒 Event timestamp logging
+* 📊 Confidence estimation
 
-Situations such as:
+## 🛠 Tech Stack
 
-* Physical assault
-* Medical emergencies
-* Kidnapping attempts
-* Domestic violence
-* Sudden collapses
-* Panic attacks
-
-may prevent victims from interacting with their devices.
-
-A safety system should not wait for permission.
-
-It should detect danger and react automatically.
-
----
-
-## The "What" (The Solution)
-
-SunoSuraksha introduces a proactive approach to personal safety.
-
-Instead of waiting for manual activation, the system continuously analyzes ambient audio streams to identify potential distress situations.
-
-When abnormal voice patterns or distress keywords are detected, the system can automatically trigger predefined emergency workflows.
-
-Current prototype capabilities include:
-
-* Real-time microphone monitoring
-* AI distress classification
-* Event timestamp logging
-* Alert triggering
-* Confidence estimation
-
-Additional optional modules include:
-
-* Approximate location capture
-* Webcam snapshot collection
-* Emergency notifications
-* Event history management
-
----
-
-## The "How" (The Engineering)
-
-### 🎤 Real-Time Audio Pipeline
-
-Audio is captured directly from the microphone and segmented into short windows suitable for machine learning inference.
-
-### 🧠 Distress Detection Engine
-
-Audio features are transformed into MFCC representations and processed through a lightweight CNN classifier trained to distinguish distress patterns from normal ambient speech.
-
-### 🚨 Alert Engine
-
-Upon exceeding the configured confidence threshold, the emergency engine activates and records:
-
-* Detection timestamp
-* Confidence score
-* Event metadata
-
-### 📊 Event Logging
-
-Every triggered incident is stored for later inspection and analysis.
-
----
-
-# 🌟 What Makes SunoSuraksha Different?
-
-### 1. Proactive Safety Instead of Reactive Safety
-
-Most safety applications require manual interaction.
-
-SunoSuraksha attempts to detect emergencies automatically.
-
----
-
-### 2. Ambient Intelligence
-
-The system passively observes environmental audio without requiring active user participation.
-
----
-
-### 3. Future Wearable Compatibility
-
-The architecture is intentionally designed to support future deployment on:
-
-* Smart Rings
-* Bracelets
-* Smart Earbuds
-* Safety Pendants
-
----
-
-### 4. Privacy First Design
-
-Audio recordings are not intended for cloud storage.
-
-Inference can potentially be performed locally on edge devices.
-
----
-
-# 🛠 Technical Stack
-
-### Frontend
+**Frontend**
 
 * Streamlit
 
-### Backend
+**Backend**
 
 * Python
 
-### Machine Learning
+**Machine Learning**
 
 * TensorFlow
 * CNN
 * MFCC
 
-### Audio Processing
+**Audio Processing**
 
 * Librosa
-* SoundDevice
 
-### Data Storage
+## 🚧 Current Status
 
-* CSV Logs
+Prototype Version : **V1**
 
----
+Implemented:
 
-# 🚀 Prototype Status
+✅ Audio Monitoring
 
-Current Version:
+✅ Distress Detection
 
-**Prototype V1**
+✅ Event Logging
 
-Implemented Features:
+Planned Future Work:
 
-✅ Real-time audio monitoring
+🔵 Wearable Integration
 
-✅ Distress classification
+🔵 Edge AI Optimization
 
-✅ Event logging
+🔵 Notification Services
 
-✅ Confidence estimation
+🔵 Smart Campus Safety Ecosystem
 
-Experimental Features:
+## ⚠ Limitations
 
-🟡 Snapshot capture
+This project is currently a proof-of-concept prototype.
 
-🟡 Approximate location acquisition
+Some challenges still under investigation include:
 
-🟡 Notification service
+* Limited distress datasets
+* Model validation
+* Wearable deployment feasibility
+* Real-world testing
 
-Planned Features:
-
-🔵 Wearable integration
-
-🔵 Edge AI optimization
-
-🔵 GPS accuracy improvements
-
-🔵 Emergency contact automation
-
----
-
-# ⚠ Current Limitations
-
-As of Version 1, SunoSuraksha remains a proof-of-concept prototype.
-
-The following limitations still exist:
-
-* No real-world deployment
-* No field validation studies
-* Limited distress dataset
-* Model accuracy requires further evaluation
-* No dedicated wearable hardware prototype
-* Battery optimization has not been explored
-* Emergency communication APIs are not yet integrated
-
-These limitations are expected and represent active research opportunities rather than project failures.
-
----
-
-# 🔬 Research Direction
-
-Future work aims to investigate:
-
-* Distress sound datasets
-* Embedded TinyML deployment
-* Wearable safety devices
-* Edge AI inference
-* Federated privacy-preserving learning
-* Smart campus safety ecosystems
-
----
-
-Built with the vision that **personal safety technologies should assist users automatically, rather than waiting for them to ask for help.**
+Built to explore the idea that **personal safety systems should assist users proactively rather than waiting for users to ask for help.**
